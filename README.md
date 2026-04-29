@@ -2,9 +2,9 @@
 
 A lightweight, presentational React library that renders beautiful, GitHub-styled preview cards for **Pull Requests** and **Repositories**. Supports 4 layout variants, light/dark themes, labels, CI checks, i18n relative dates, skeleton loaders, and deep typography customization --- all with zero external dependencies.
 
-![Pull Request Variants Matrix](.github/assets/pr-variants-matrix.png)
+![Pull Request Variants Matrix](https://raw.githubusercontent.com/Ecomont/react-github-pr-preview/main/.github/assets/pr-variants-matrix.png)
 
-![Pull Request Variants Matrix Dark](.github/assets/pr-variants-matrix-dark.png)
+![Pull Request Variants Matrix Dark](https://raw.githubusercontent.com/Ecomont/react-github-pr-preview/main/.github/assets/pr-variants-matrix-dark.png)
 
 ## Presentational Components
 
@@ -80,37 +80,37 @@ export default function App() {
 
 Four layout variants for every use case --- from dense inline chips to rich detail cards.
 
-![Pull Request Variants](.github/assets/pr-variants-matrix.png)
+![Pull Request Variants](https://raw.githubusercontent.com/Ecomont/react-github-pr-preview/main/.github/assets/pr-variants-matrix.png)
 
 ### Dark Mode
 
 All components adapt seamlessly to dark themes. Pass `theme="dark"` or use `theme="system"` to respect the OS preference.
 
-![Pull Request Variants Dark](.github/assets/pr-variants-matrix-dark.png)
+![Pull Request Variants Dark](https://raw.githubusercontent.com/Ecomont/react-github-pr-preview/main/.github/assets/pr-variants-matrix-dark.png)
 
 ### States and Checks
 
 Visual distinction for open, merged, closed, and pending check states.
 
-![States and Checks](.github/assets/pr-states-cheks-dark.png)
+![States and Checks](https://raw.githubusercontent.com/Ecomont/react-github-pr-preview/main/.github/assets/pr-states-cheks-dark.png)
 
 ### Typography
 
 Inherits your site's font by default. Override per-instance or globally via CSS variables.
 
-![Typography Showcase](.github/assets/pr-typography-dark.png)
+![Typography Showcase](https://raw.githubusercontent.com/Ecomont/react-github-pr-preview/main/.github/assets/pr-typography-dark.png)
 
 ### Skeleton Loaders
 
 Pulsing placeholders for every variant while data loads.
 
-![Skeleton Loaders](.github/assets/pr-skeleton-loaders-dark.png)
+![Skeleton Loaders](https://raw.githubusercontent.com/Ecomont/react-github-pr-preview/main/.github/assets/pr-skeleton-loaders-dark.png)
 
 ### Repository Cards
 
 The same attention to detail for repository previews --- stars, forks, language, license, and topics.
 
-![Repository Variants Dark](.github/assets/repo-variants-matrix-dark.png)
+![Repository Variants Dark](https://raw.githubusercontent.com/Ecomont/react-github-pr-preview/main/.github/assets/repo-variants-matrix-dark.png)
 
 ## Playground
 

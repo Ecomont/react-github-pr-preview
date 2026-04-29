@@ -31,6 +31,14 @@
   ],
   "author": "Héctor Ruiz / Ecomont",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ecomont/react-github-pr-preview.git"
+  },
+  "homepage": "https://github.com/Ecomont/react-github-pr-preview#readme",
+  "bugs": {
+    "url": "https://github.com/Ecomont/react-github-pr-preview/issues"
+  },
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
