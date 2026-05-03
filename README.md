@@ -1,6 +1,8 @@
-# react-github-pr-preview
+# react-github-previews
 
-A lightweight, presentational React library that renders beautiful, GitHub-styled preview cards for **Pull Requests** and **Repositories**. Supports 4 layout variants, light/dark themes, labels, CI checks, i18n relative dates, skeleton loaders, and deep typography customization --- all with zero external dependencies.
+A lightweight, presentational React library that renders beautiful, GitHub-styled preview cards for **Pull Requests** and **Repositories**. Supports 4 layout variants, 11 visual themes, 3 style effects, labels, CI checks, i18n relative dates, skeleton loaders, and deep typography customization --- all with zero external dependencies.
+
+> **Note:** The npm package is published as `react-github-previews`. The source repository lives at [`Ecomont/react-github-pr-preview`](https://github.com/Ecomont/react-github-pr-preview).
 
 ![Pull Request Variants Matrix](https://raw.githubusercontent.com/Ecomont/react-github-pr-preview/main/.github/assets/pr-variants-matrix.png)
 
@@ -13,7 +15,7 @@ A lightweight, presentational React library that renders beautiful, GitHub-style
 ## Installation
 
 ```bash
-npm install react-github-pr-preview
+npm install react-github-previews
 ```
 
 ## Requirements
@@ -26,7 +28,7 @@ npm install react-github-pr-preview
 ### Pull Request Preview
 
 ```tsx
-import { GithubPrPreview } from "react-github-pr-preview";
+import { GithubPrPreview } from "react-github-previews";
 
 const myPrData = {
   title: "Fix memory leak in useEffect cleanup",
@@ -51,7 +53,7 @@ export default function App() {
 ### Repository Preview
 
 ```tsx
-import { GithubRepoPreview } from "react-github-pr-preview";
+import { GithubRepoPreview } from "react-github-previews";
 
 const myRepoData = {
   name: "react",
@@ -122,7 +124,7 @@ npm install
 npm run dev
 ```
 
-The playground demonstrates all variants, themes, typography overrides, states, skeleton loaders, and localization for both Pull Requests and Repositories.
+The playground demonstrates all variants, themes, style effects, typography overrides, states, skeleton loaders, and localization for both Pull Requests and Repositories.
 
 ## Gallery of Variants
 
@@ -252,11 +254,19 @@ Because the component uses CSS classes internally, you can also override specifi
 
 Control the color scheme with the `theme` prop:
 
-| Value      | Behavior                                                        |
-|------------|-----------------------------------------------------------------|
-| `"light"`  | Forces the light GitHub theme.                                  |
-| `"dark"`   | Forces the dark GitHub theme.                                   |
-| `"system"` | **Default.** Automatically adapts to the user's OS preference.  |
+| Value               | Behavior                                                        |
+|---------------------|-----------------------------------------------------------------|
+| `"light"`           | Forces the light GitHub theme.                                  |
+| `"dark"`            | Forces the dark GitHub theme.                                   |
+| `"system"`          | **Default.** Automatically adapts to the user's OS preference.  |
+| `"neobrutalism"`    | Bold, high-contrast light theme with thick borders and shadows. |
+| `"neobrutalism-dark"` | Dark variant of neobrutalism.                                 |
+| `"terminal"`        | Retro green-on-black hacker aesthetic.                          |
+| `"minimalist"`      | Ultra-clean, subdued borders and muted colors.                  |
+| `"retro"`           | Classic 90s gray bevel look.                                    |
+| `"hand-drawn"`      | Organic, sketch-like appearance.                                |
+| `"claymorphism"`    | Soft 3D clay-like rounded shapes.                               |
+| `"claymorphism-dark"` | Dark variant of claymorphism.                                 |
 
 ```tsx
 {/* Force dark mode */}
@@ -264,6 +274,26 @@ Control the color scheme with the `theme` prop:
 
 {/* Respect OS setting (default) */}
 <GithubPrPreview prData={myPrData} theme="system" />
+
+{/* Fun themes */}
+<GithubPrPreview prData={myPrData} theme="terminal" />
+<GithubPrPreview prData={myPrData} theme="neobrutalism" />
+```
+
+### Visual Effects
+
+Three optional style effects can be layered on top of any theme:
+
+| Prop           | Effect                                                              |
+|----------------|---------------------------------------------------------------------|
+| `glass`        | Liquid-glass backdrop blur with subtle shine and rounded pills.     |
+| `gradient`     | Dramatic gradient glow behind the card with floating shadows.       |
+| `neumorphic`   | Soft UI inset/outset shadows for a tactile, physical feel.          |
+
+```tsx
+<GithubPrPreview prData={myPrData} theme="dark" glass />
+<GithubPrPreview prData={myPrData} theme="light" gradient />
+<GithubPrPreview prData={myPrData} theme="light" neumorphic />
 ```
 
 ### Typography
@@ -293,27 +323,33 @@ The precedence is: `style` > `fontFamily` prop > CSS variable > inherited font.
 
 ### `GithubPrPreview`
 
-| Prop        | Type                                         | Default      | Required | Description                                              |
-|-------------|----------------------------------------------|--------------|----------|----------------------------------------------------------|
-| `prData`    | `PullRequestData`                            | ---          | Yes      | The pull request data object to render.                  |
-| `className` | `string`                                     | ---          | No       | CSS class applied to the root wrapper.                   |
-| `style`     | `React.CSSProperties`                        | ---          | No       | Inline styles merged into the root wrapper.              |
-| `theme`     | `"light" \| "dark" \| "system"`              | `"system"`   | No       | Color theme. `"system"` uses `prefers-color-scheme`.     |
-| `variant`   | `"default" \| "compact" \| "inline" \| "detailed"` | `"default"`  | No       | Layout variant.                                          |
-| `fontFamily`| `string`                                     | ---          | No       | Font family override. Falls back to inherited font.      |
-| `locale`    | `string`                                     | `"en-US"`    | No       | Locale for relative time formatting.                     |
+| Prop         | Type                                         | Default      | Required | Description                                              |
+|--------------|----------------------------------------------|--------------|----------|----------------------------------------------------------|
+| `prData`     | `PullRequestData`                            | ---          | Yes      | The pull request data object to render.                  |
+| `className`  | `string`                                     | ---          | No       | CSS class applied to the root wrapper.                   |
+| `style`      | `React.CSSProperties`                        | ---          | No       | Inline styles merged into the root wrapper.              |
+| `theme`      | `GithubPrTheme`                              | `"system"`   | No       | Color theme (see Themes table above).                    |
+| `variant`    | `"default" \| "compact" \| "inline" \| "detailed"` | `"default"`  | No       | Layout variant.                                          |
+| `fontFamily` | `string`                                     | ---          | No       | Font family override. Falls back to inherited font.      |
+| `locale`     | `string`                                     | `"en-US"`    | No       | Locale for relative time formatting.                     |
+| `glass`      | `boolean`                                    | `false`      | No       | Enable liquid-glass styling.                             |
+| `gradient`   | `boolean`                                    | `false`      | No       | Enable gradient glow effect.                             |
+| `neumorphic` | `boolean`                                    | `false`      | No       | Enable neumorphic (soft UI) styling.                     |
 
 ### `GithubRepoPreview`
 
-| Prop        | Type                                         | Default      | Required | Description                                              |
-|-------------|----------------------------------------------|--------------|----------|----------------------------------------------------------|
-| `repoData`  | `GitHubRepoData`                             | ---          | Yes      | The repository data object to render.                    |
-| `className` | `string`                                     | ---          | No       | CSS class applied to the root wrapper.                   |
-| `style`     | `React.CSSProperties`                        | ---          | No       | Inline styles merged into the root wrapper.              |
-| `theme`     | `"light" \| "dark" \| "system"`              | `"system"`   | No       | Color theme. `"system"` uses `prefers-color-scheme`.     |
-| `variant`   | `"default" \| "compact" \| "inline" \| "detailed"` | `"default"`  | No       | Layout variant.                                          |
-| `fontFamily`| `string`                                     | ---          | No       | Font family override. Falls back to inherited font.      |
-| `locale`    | `string`                                     | `"en-US"`    | No       | Locale for relative time formatting.                     |
+| Prop         | Type                                         | Default      | Required | Description                                              |
+|--------------|----------------------------------------------|--------------|----------|----------------------------------------------------------|
+| `repoData`   | `GitHubRepoData`                             | ---          | Yes      | The repository data object to render.                    |
+| `className`  | `string`                                     | ---          | No       | CSS class applied to the root wrapper.                   |
+| `style`      | `React.CSSProperties`                        | ---          | No       | Inline styles merged into the root wrapper.              |
+| `theme`      | `GithubRepoTheme`                            | `"system"`   | No       | Color theme (see Themes table above).                    |
+| `variant`    | `"default" \| "compact" \| "inline" \| "detailed"` | `"default"`  | No       | Layout variant.                                          |
+| `fontFamily` | `string`                                     | ---          | No       | Font family override. Falls back to inherited font.      |
+| `locale`     | `string`                                     | `"en-US"`    | No       | Locale for relative time formatting.                     |
+| `glass`      | `boolean`                                    | `false`      | No       | Enable liquid-glass styling.                             |
+| `gradient`   | `boolean`                                    | `false`      | No       | Enable gradient glow effect.                             |
+| `neumorphic` | `boolean`                                    | `false`      | No       | Enable neumorphic (soft UI) styling.                     |
 
 ### `PullRequestData`
 
@@ -342,8 +378,8 @@ The precedence is: `style` > `fontFamily` prop > CSS variable > inherited font.
 | `owner`          | `{ login: string; avatarUrl: string }` | Yes | Repository owner info.             |
 | `stargazersCount`| `number`                      | Yes      | Number of stars.                         |
 | `forksCount`     | `number`                      | Yes      | Number of forks.                         |
-| `language`       | `{ name: string; color: string }` | No   | Primary language.                        |
-| `topics`         | `string[]`                    | No       | Repository topics.                       |
+| `language`       | `{ name: string; color: string }` | Yes   | Primary language.                        |
+| `topics`         | `string[]`                    | Yes      | Repository topics.                       |
 | `license`        | `string`                      | No       | SPDX license identifier.                 |
 | `pushedAt`       | `string \| Date`              | Yes      | Last push date (ISO string or Date).     |
 
