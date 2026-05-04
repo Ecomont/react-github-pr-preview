@@ -376,6 +376,150 @@ export default function App() {
                   locale="es-ES"
                 />
               </div>
+
+              {/* Glass */}
+              <div style={sectionStyle(theme)}>
+                <h2 style={sectionTitleStyle(theme)}>Glass</h2>
+                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <div>
+                    <p style={labelStyle(theme)}>Inline</p>
+                    <GithubPrPreview prData={basePr} theme={theme} glass variant="inline" />
+                  </div>
+                  <div style={gridStyle}>
+                    <div>
+                      <p style={labelStyle(theme)}>Compact</p>
+                      <GithubPrPreview prData={basePr} theme={theme} glass variant="compact" />
+                    </div>
+                    <div>
+                      <p style={labelStyle(theme)}>Default</p>
+                      <GithubPrPreview prData={basePr} theme={theme} glass variant="default" />
+                    </div>
+                  </div>
+                  <div>
+                    <p style={labelStyle(theme)}>Detailed</p>
+                    <GithubPrPreview prData={basePr} theme={theme} glass variant="detailed" />
+                  </div>
+                  <div>
+                    <p style={labelStyle(theme)}>Skeletons</p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                      <GithubPrPreview.Skeleton theme={theme} glass variant="inline" />
+                      <div style={gridStyle}>
+                        <GithubPrPreview.Skeleton theme={theme} glass variant="compact" />
+                        <GithubPrPreview.Skeleton theme={theme} glass variant="default" />
+                      </div>
+                      <GithubPrPreview.Skeleton theme={theme} glass variant="detailed" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Gradient */}
+              <div style={{ ...sectionStyle(theme), background: "transparent", border: "none", padding: 0 }}>
+                <h2 style={sectionTitleStyle(theme)}>Gradient</h2>
+                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <div>
+                    <p style={labelStyle(theme)}>Inline</p>
+                    <GithubPrPreview prData={basePr} theme={theme} gradient variant="inline" />
+                  </div>
+                  <div style={gridStyle}>
+                    <div>
+                      <p style={labelStyle(theme)}>Compact</p>
+                      <GithubPrPreview prData={basePr} theme={theme} gradient variant="compact" />
+                    </div>
+                    <div>
+                      <p style={labelStyle(theme)}>Default</p>
+                      <GithubPrPreview prData={basePr} theme={theme} gradient variant="default" />
+                    </div>
+                  </div>
+                  <div>
+                    <p style={labelStyle(theme)}>Detailed</p>
+                    <GithubPrPreview prData={basePr} theme={theme} gradient variant="detailed" />
+                  </div>
+                  <div>
+                    <p style={labelStyle(theme)}>Skeletons</p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                      <GithubPrPreview.Skeleton theme={theme} gradient variant="inline" />
+                      <div style={gridStyle}>
+                        <GithubPrPreview.Skeleton theme={theme} gradient variant="compact" />
+                        <GithubPrPreview.Skeleton theme={theme} gradient variant="default" />
+                      </div>
+                      <GithubPrPreview.Skeleton theme={theme} gradient variant="detailed" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Glass + Gradient */}
+              <div style={{ ...sectionStyle(theme), background: "transparent", border: "none", padding: 0 }}>
+                <h2 style={sectionTitleStyle(theme)}>Glass + Gradient</h2>
+                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <div>
+                    <p style={labelStyle(theme)}>Inline</p>
+                    <GithubPrPreview prData={basePr} theme={theme} glass gradient variant="inline" />
+                  </div>
+                  <div style={gridStyle}>
+                    <div>
+                      <p style={labelStyle(theme)}>Compact</p>
+                      <GithubPrPreview prData={basePr} theme={theme} glass gradient variant="compact" />
+                    </div>
+                    <div>
+                      <p style={labelStyle(theme)}>Default</p>
+                      <GithubPrPreview prData={basePr} theme={theme} glass gradient variant="default" />
+                    </div>
+                  </div>
+                  <div>
+                    <p style={labelStyle(theme)}>Detailed</p>
+                    <GithubPrPreview prData={basePr} theme={theme} glass gradient variant="detailed" />
+                  </div>
+                  <div>
+                    <p style={labelStyle(theme)}>Skeletons</p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                      <GithubPrPreview.Skeleton theme={theme} glass gradient variant="inline" />
+                      <div style={gridStyle}>
+                        <GithubPrPreview.Skeleton theme={theme} glass gradient variant="compact" />
+                        <GithubPrPreview.Skeleton theme={theme} glass gradient variant="default" />
+                      </div>
+                      <GithubPrPreview.Skeleton theme={theme} glass gradient variant="detailed" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Neumorphism */}
+              <div style={sectionStyle(theme)}>
+                <h2 style={sectionTitleStyle(theme)}>Neumorphism</h2>
+                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <div>
+                    <p style={labelStyle(theme)}>Inline</p>
+                    <GithubPrPreview prData={basePr} theme={theme} neumorphic variant="inline" />
+                  </div>
+                  <div style={gridStyle}>
+                    <div>
+                      <p style={labelStyle(theme)}>Compact</p>
+                      <GithubPrPreview prData={basePr} theme={theme} neumorphic variant="compact" />
+                    </div>
+                    <div>
+                      <p style={labelStyle(theme)}>Default</p>
+                      <GithubPrPreview prData={basePr} theme={theme} neumorphic variant="default" />
+                    </div>
+                  </div>
+                  <div>
+                    <p style={labelStyle(theme)}>Detailed</p>
+                    <GithubPrPreview prData={basePr} theme={theme} neumorphic variant="detailed" />
+                  </div>
+                  <div>
+                    <p style={labelStyle(theme)}>Skeletons</p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                      <GithubPrPreview.Skeleton theme={theme} neumorphic variant="inline" />
+                      <div style={gridStyle}>
+                        <GithubPrPreview.Skeleton theme={theme} neumorphic variant="compact" />
+                        <GithubPrPreview.Skeleton theme={theme} neumorphic variant="default" />
+                      </div>
+                      <GithubPrPreview.Skeleton theme={theme} neumorphic variant="detailed" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </>
           )}
 
@@ -465,6 +609,150 @@ export default function App() {
                   variant="detailed"
                   locale="es-ES"
                 />
+              </div>
+
+              {/* Glass */}
+              <div style={sectionStyle(theme)}>
+                <h2 style={sectionTitleStyle(theme)}>Glass</h2>
+                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <div>
+                    <p style={labelStyle(theme)}>Inline</p>
+                    <GithubRepoPreview repoData={inlineRepo} theme={theme} glass variant="inline" />
+                  </div>
+                  <div style={gridStyle}>
+                    <div>
+                      <p style={labelStyle(theme)}>Compact</p>
+                      <GithubRepoPreview repoData={compactRepo} theme={theme} glass variant="compact" />
+                    </div>
+                    <div>
+                      <p style={labelStyle(theme)}>Default</p>
+                      <GithubRepoPreview repoData={baseRepo} theme={theme} glass variant="default" />
+                    </div>
+                  </div>
+                  <div>
+                    <p style={labelStyle(theme)}>Detailed</p>
+                    <GithubRepoPreview repoData={detailedRepo} theme={theme} glass variant="detailed" />
+                  </div>
+                  <div>
+                    <p style={labelStyle(theme)}>Skeletons</p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                      <GithubRepoPreview.Skeleton theme={theme} glass variant="inline" />
+                      <div style={gridStyle}>
+                        <GithubRepoPreview.Skeleton theme={theme} glass variant="compact" />
+                        <GithubRepoPreview.Skeleton theme={theme} glass variant="default" />
+                      </div>
+                      <GithubRepoPreview.Skeleton theme={theme} glass variant="detailed" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Gradient */}
+              <div style={{ ...sectionStyle(theme), background: "transparent", border: "none", padding: 0 }}>
+                <h2 style={sectionTitleStyle(theme)}>Gradient</h2>
+                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <div>
+                    <p style={labelStyle(theme)}>Inline</p>
+                    <GithubRepoPreview repoData={inlineRepo} theme={theme} gradient variant="inline" />
+                  </div>
+                  <div style={gridStyle}>
+                    <div>
+                      <p style={labelStyle(theme)}>Compact</p>
+                      <GithubRepoPreview repoData={compactRepo} theme={theme} gradient variant="compact" />
+                    </div>
+                    <div>
+                      <p style={labelStyle(theme)}>Default</p>
+                      <GithubRepoPreview repoData={baseRepo} theme={theme} gradient variant="default" />
+                    </div>
+                  </div>
+                  <div>
+                    <p style={labelStyle(theme)}>Detailed</p>
+                    <GithubRepoPreview repoData={detailedRepo} theme={theme} gradient variant="detailed" />
+                  </div>
+                  <div>
+                    <p style={labelStyle(theme)}>Skeletons</p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                      <GithubRepoPreview.Skeleton theme={theme} gradient variant="inline" />
+                      <div style={gridStyle}>
+                        <GithubRepoPreview.Skeleton theme={theme} gradient variant="compact" />
+                        <GithubRepoPreview.Skeleton theme={theme} gradient variant="default" />
+                      </div>
+                      <GithubRepoPreview.Skeleton theme={theme} gradient variant="detailed" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Glass + Gradient */}
+              <div style={{ ...sectionStyle(theme), background: "transparent", border: "none", padding: 0 }}>
+                <h2 style={sectionTitleStyle(theme)}>Glass + Gradient</h2>
+                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <div>
+                    <p style={labelStyle(theme)}>Inline</p>
+                    <GithubRepoPreview repoData={inlineRepo} theme={theme} glass gradient variant="inline" />
+                  </div>
+                  <div style={gridStyle}>
+                    <div>
+                      <p style={labelStyle(theme)}>Compact</p>
+                      <GithubRepoPreview repoData={compactRepo} theme={theme} glass gradient variant="compact" />
+                    </div>
+                    <div>
+                      <p style={labelStyle(theme)}>Default</p>
+                      <GithubRepoPreview repoData={baseRepo} theme={theme} glass gradient variant="default" />
+                    </div>
+                  </div>
+                  <div>
+                    <p style={labelStyle(theme)}>Detailed</p>
+                    <GithubRepoPreview repoData={detailedRepo} theme={theme} glass gradient variant="detailed" />
+                  </div>
+                  <div>
+                    <p style={labelStyle(theme)}>Skeletons</p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                      <GithubRepoPreview.Skeleton theme={theme} glass gradient variant="inline" />
+                      <div style={gridStyle}>
+                        <GithubRepoPreview.Skeleton theme={theme} glass gradient variant="compact" />
+                        <GithubRepoPreview.Skeleton theme={theme} glass gradient variant="default" />
+                      </div>
+                      <GithubRepoPreview.Skeleton theme={theme} glass gradient variant="detailed" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Neumorphism */}
+              <div style={sectionStyle(theme)}>
+                <h2 style={sectionTitleStyle(theme)}>Neumorphism</h2>
+                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <div>
+                    <p style={labelStyle(theme)}>Inline</p>
+                    <GithubRepoPreview repoData={inlineRepo} theme={theme} neumorphic variant="inline" />
+                  </div>
+                  <div style={gridStyle}>
+                    <div>
+                      <p style={labelStyle(theme)}>Compact</p>
+                      <GithubRepoPreview repoData={compactRepo} theme={theme} neumorphic variant="compact" />
+                    </div>
+                    <div>
+                      <p style={labelStyle(theme)}>Default</p>
+                      <GithubRepoPreview repoData={baseRepo} theme={theme} neumorphic variant="default" />
+                    </div>
+                  </div>
+                  <div>
+                    <p style={labelStyle(theme)}>Detailed</p>
+                    <GithubRepoPreview repoData={detailedRepo} theme={theme} neumorphic variant="detailed" />
+                  </div>
+                  <div>
+                    <p style={labelStyle(theme)}>Skeletons</p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                      <GithubRepoPreview.Skeleton theme={theme} neumorphic variant="inline" />
+                      <div style={gridStyle}>
+                        <GithubRepoPreview.Skeleton theme={theme} neumorphic variant="compact" />
+                        <GithubRepoPreview.Skeleton theme={theme} neumorphic variant="default" />
+                      </div>
+                      <GithubRepoPreview.Skeleton theme={theme} neumorphic variant="detailed" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </>
           )}

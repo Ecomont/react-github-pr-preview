@@ -76,6 +76,28 @@ export interface GithubPrPreviewProps {
    * @default 'en-US'
    */
   locale?: string;
+  /**
+   * Enable liquid-glass styling.
+   * When `true`, cards render with a frosted-glass effect using
+   * semi-transparent backgrounds and backdrop blur.
+   * @default false
+   */
+  glass?: boolean;
+  /**
+   * Enable gradient background on the wrapper.
+   * When `true`, the root wrapper renders with a vibrant purple
+   * gradient background. Combine with `glass` for a glassmorphism look.
+   * @default false
+   */
+  gradient?: boolean;
+  /**
+   * Enable neumorphic (soft UI) styling.
+   * When `true`, cards render with dual opposing box-shadows,
+   * monochromatic colors, and large border radius for an extruded
+   * plastic look. Interactive elements get an inset pressed state.
+   * @default false
+   */
+  neumorphic?: boolean;
 }
 
 export interface GithubPrSkeletonProps {
@@ -90,6 +112,21 @@ export interface GithubPrSkeletonProps {
    * @default 'system'
    */
   theme?: GithubPrTheme;
+  /**
+   * Render skeleton with liquid-glass styling.
+   * @default false
+   */
+  glass?: boolean;
+  /**
+   * Render skeleton with a gradient wrapper background.
+   * @default false
+   */
+  gradient?: boolean;
+  /**
+   * Render skeleton with neumorphic styling.
+   * @default false
+   */
+  neumorphic?: boolean;
 }
 
 /* ------------------------------------------------------------------ */
@@ -170,6 +207,28 @@ export interface GithubRepoPreviewProps {
    * @default 'en-US'
    */
   locale?: string;
+  /**
+   * Enable liquid-glass styling.
+   * When `true`, cards render with a frosted-glass effect using
+   * semi-transparent backgrounds and backdrop blur.
+   * @default false
+   */
+  glass?: boolean;
+  /**
+   * Enable gradient background on the wrapper.
+   * When `true`, the root wrapper renders with a vibrant purple
+   * gradient background. Combine with `glass` for a glassmorphism look.
+   * @default false
+   */
+  gradient?: boolean;
+  /**
+   * Enable neumorphic (soft UI) styling.
+   * When `true`, cards render with dual opposing box-shadows,
+   * monochromatic colors, and large border radius for an extruded
+   * plastic look. Interactive elements get an inset pressed state.
+   * @default false
+   */
+  neumorphic?: boolean;
 }
 
 export interface GithubRepoSkeletonProps {
@@ -184,4 +243,19 @@ export interface GithubRepoSkeletonProps {
    * @default 'system'
    */
   theme?: GithubRepoTheme;
+  /**
+   * Render skeleton with liquid-glass styling.
+   * @default false
+   */
+  glass?: boolean;
+  /**
+   * Render skeleton with a gradient wrapper background.
+   * @default false
+   */
+  gradient?: boolean;
+  /**
+   * Render skeleton with neumorphic styling.
+   * @default false
+   */
+  neumorphic?: boolean;
 }

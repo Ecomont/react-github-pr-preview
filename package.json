@@ -1,6 +1,6 @@
 {
   "name": "react-github-previews",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A zero-dependency React library for beautiful GitHub Pull Request and Repository preview cards.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

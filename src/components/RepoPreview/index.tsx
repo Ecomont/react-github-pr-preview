@@ -310,6 +310,258 @@ function injectGlobalStyles() {
       font-size: 13px;
       color: var(--gh-repo-text-secondary);
     }
+
+    /* Glass variables - Light theme */
+    .gh-repo-wrapper[data-gh-repo-glass="true"][data-gh-repo-theme="light"] {
+      --gh-repo-bg: rgba(255, 255, 255, 0.45);
+      --gh-repo-text-primary: #1a1a2e;
+      --gh-repo-text-secondary: rgba(26, 26, 46, 0.7);
+      --gh-repo-border: rgba(255, 255, 255, 0.5);
+      --gh-repo-footer-bg: rgba(255, 255, 255, 0.25);
+      --gh-repo-link: #4f46e5;
+      --gh-repo-star: #d97706;
+      --gh-repo-lang-dot: #4f46e5;
+      --gh-repo-skeleton-bg: rgba(26, 26, 46, 0.15);
+    }
+    /* Glass variables - Dark theme */
+    .gh-repo-wrapper[data-gh-repo-glass="true"][data-gh-repo-theme="dark"] {
+      --gh-repo-bg: rgba(255, 255, 255, 0.08);
+      --gh-repo-text-primary: #ffffff;
+      --gh-repo-text-secondary: rgba(255, 255, 255, 0.8);
+      --gh-repo-border: rgba(255, 255, 255, 0.22);
+      --gh-repo-footer-bg: rgba(255, 255, 255, 0.04);
+      --gh-repo-link: #a5b4fc;
+      --gh-repo-star: #fde047;
+      --gh-repo-lang-dot: #a5b4fc;
+      --gh-repo-skeleton-bg: rgba(255, 255, 255, 0.15);
+    }
+    /* Glass variables - System theme (default light) */
+    .gh-repo-wrapper[data-gh-repo-glass="true"][data-gh-repo-theme="system"] {
+      --gh-repo-bg: rgba(255, 255, 255, 0.45);
+      --gh-repo-text-primary: #1a1a2e;
+      --gh-repo-text-secondary: rgba(26, 26, 46, 0.7);
+      --gh-repo-border: rgba(255, 255, 255, 0.5);
+      --gh-repo-footer-bg: rgba(255, 255, 255, 0.25);
+      --gh-repo-link: #4f46e5;
+      --gh-repo-star: #d97706;
+      --gh-repo-lang-dot: #4f46e5;
+      --gh-repo-skeleton-bg: rgba(26, 26, 46, 0.15);
+    }
+    @media (prefers-color-scheme: dark) {
+      .gh-repo-wrapper[data-gh-repo-glass="true"][data-gh-repo-theme="system"] {
+        --gh-repo-bg: rgba(255, 255, 255, 0.08);
+        --gh-repo-text-primary: #ffffff;
+        --gh-repo-text-secondary: rgba(255, 255, 255, 0.8);
+        --gh-repo-border: rgba(255, 255, 255, 0.22);
+        --gh-repo-footer-bg: rgba(255, 255, 255, 0.04);
+        --gh-repo-link: #a5b4fc;
+        --gh-repo-star: #fde047;
+        --gh-repo-lang-dot: #a5b4fc;
+        --gh-repo-skeleton-bg: rgba(255, 255, 255, 0.15);
+      }
+    }
+
+    /* Gradient variables */
+    .gh-repo-wrapper[data-gh-repo-gradient="true"] {
+      --gh-repo-bg: rgba(255, 255, 255, 0.07);
+      --gh-repo-text-primary: #ffffff;
+      --gh-repo-text-secondary: rgba(255, 255, 255, 0.75);
+      --gh-repo-border: rgba(255, 255, 255, 0.15);
+      --gh-repo-footer-bg: rgba(255, 255, 255, 0.04);
+      --gh-repo-link: #c7d2fe;
+      --gh-repo-star: #fde047;
+      --gh-repo-lang-dot: #c7d2fe;
+    }
+
+    /* Liquid Glass card effects */
+    .gh-repo-wrapper[data-gh-repo-glass="true"] .gh-repo-card,
+    .gh-repo-wrapper[data-gh-repo-glass="true"] .gh-repo-compact,
+    .gh-repo-wrapper[data-gh-repo-glass="true"] .gh-repo-detailed,
+    .gh-repo-wrapper[data-gh-repo-glass="true"] .gh-repo-inline {
+      backdrop-filter: blur(40px) saturate(200%) brightness(1.15);
+      -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(1.15);
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.05) 100%
+      );
+      background-color: var(--gh-repo-bg);
+      border: 1px solid var(--gh-repo-border);
+      border-top: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.08),
+        0 8px 24px rgba(0, 0, 0, 0.12),
+        0 24px 48px rgba(0, 0, 0, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .gh-repo-wrapper[data-gh-repo-glass="true"] .gh-repo-card::before,
+    .gh-repo-wrapper[data-gh-repo-glass="true"] .gh-repo-compact::before,
+    .gh-repo-wrapper[data-gh-repo-glass="true"] .gh-repo-detailed::before,
+    .gh-repo-wrapper[data-gh-repo-glass="true"] .gh-repo-inline::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1.4px;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(255, 255, 255, 0.15) 30%,
+        rgba(255, 255, 255, 0) 60%,
+        rgba(255, 255, 255, 0.1) 100%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      opacity: 0.6;
+    }
+    .gh-repo-wrapper[data-gh-repo-glass="true"] .gh-repo-card-header {
+      padding: 24px;
+    }
+    .gh-repo-wrapper[data-gh-repo-glass="true"] .gh-repo-footer {
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.02) 100%
+      );
+      background-color: var(--gh-repo-footer-bg);
+      border-top: 1px solid var(--gh-repo-border);
+      padding: 16px 24px;
+      border-radius: 0 0 23px 23px;
+    }
+    .gh-repo-wrapper[data-gh-repo-glass="true"] .gh-repo-detailed-header {
+      padding: 24px;
+    }
+    .gh-repo-wrapper[data-gh-repo-glass="true"] .gh-repo-detailed-footer {
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.02) 100%
+      );
+      background-color: var(--gh-repo-footer-bg);
+      border-top: 1px solid var(--gh-repo-border);
+      padding: 16px 24px;
+      border-radius: 0 0 23px 23px;
+    }
+    .gh-repo-wrapper[data-gh-repo-glass="true"] .gh-repo-icon {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.08) 100%
+      );
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: var(--gh-repo-text-primary);
+      box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.06),
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+      border-radius: 14px;
+    }
+    .gh-repo-wrapper[data-gh-repo-glass="true"] .gh-repo-topic-glass {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.18) 0%,
+        rgba(255, 255, 255, 0.08) 100%
+      );
+      color: var(--gh-repo-link);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px) saturate(150%);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+    }
+    .gh-repo-wrapper[data-gh-repo-glass="true"] .gh-repo-compact-stars {
+      color: var(--gh-repo-star);
+    }
+
+    /* Gradient card background */
+    .gh-repo-wrapper[data-gh-repo-gradient="true"] .gh-repo-card,
+    .gh-repo-wrapper[data-gh-repo-gradient="true"] .gh-repo-compact,
+    .gh-repo-wrapper[data-gh-repo-gradient="true"] .gh-repo-detailed,
+    .gh-repo-wrapper[data-gh-repo-gradient="true"] .gh-repo-inline {
+      background: linear-gradient(135deg, #020617 0%, #1e1b4b 25%, #4338ca 50%, #7c3aed 75%, #c026d3 100%);
+    }
+
+    /* Neumorphism overrides */
+    .gh-repo-wrapper[data-gh-repo-neumorphic="true"][data-gh-repo-theme="light"] {
+      --gh-repo-bg: #e0e5ec;
+      --gh-repo-text-primary: #4a5568;
+      --gh-repo-text-secondary: #718096;
+      --gh-repo-border: transparent;
+      --gh-repo-footer-bg: #e0e5ec;
+      --gh-repo-link: #4a5568;
+      --gh-repo-star: #ecc94b;
+      --gh-repo-lang-dot: #4a5568;
+      --gh-repo-neu-dark: #a3b1c6;
+      --gh-repo-neu-light: #ffffff;
+    }
+    .gh-repo-wrapper[data-gh-repo-neumorphic="true"][data-gh-repo-theme="dark"] {
+      --gh-repo-bg: #2d3748;
+      --gh-repo-text-primary: #e2e8f0;
+      --gh-repo-text-secondary: #a0aec0;
+      --gh-repo-border: transparent;
+      --gh-repo-footer-bg: #2d3748;
+      --gh-repo-link: #e2e8f0;
+      --gh-repo-star: #ecc94b;
+      --gh-repo-lang-dot: #e2e8f0;
+      --gh-repo-neu-dark: #1a202c;
+      --gh-repo-neu-light: #3e4c5e;
+    }
+    @media (prefers-color-scheme: dark) {
+      .gh-repo-wrapper[data-gh-repo-neumorphic="true"][data-gh-repo-theme="system"] {
+        --gh-repo-bg: #2d3748;
+        --gh-repo-text-primary: #e2e8f0;
+        --gh-repo-text-secondary: #a0aec0;
+        --gh-repo-border: transparent;
+        --gh-repo-footer-bg: #2d3748;
+        --gh-repo-link: #e2e8f0;
+        --gh-repo-star: #ecc94b;
+        --gh-repo-lang-dot: #e2e8f0;
+        --gh-repo-neu-dark: #1a202c;
+        --gh-repo-neu-light: #3e4c5e;
+      }
+    }
+    .gh-repo-wrapper[data-gh-repo-neumorphic="true"] .gh-repo-card,
+    .gh-repo-wrapper[data-gh-repo-neumorphic="true"] .gh-repo-compact,
+    .gh-repo-wrapper[data-gh-repo-neumorphic="true"] .gh-repo-detailed {
+      background: var(--gh-repo-bg);
+      border: none;
+      border-radius: 20px;
+      box-shadow: 8px 8px 16px var(--gh-repo-neu-dark), -8px -8px 16px var(--gh-repo-neu-light);
+    }
+    .gh-repo-wrapper[data-gh-repo-neumorphic="true"] .gh-repo-inline {
+      background: var(--gh-repo-bg);
+      border: none;
+      border-radius: 20px;
+      box-shadow: 4px 4px 8px var(--gh-repo-neu-dark), -4px -4px 8px var(--gh-repo-neu-light);
+    }
+    .gh-repo-wrapper[data-gh-repo-neumorphic="true"] .gh-repo-inline:active {
+      box-shadow: inset 3px 3px 6px var(--gh-repo-neu-dark), inset -3px -3px 6px var(--gh-repo-neu-light);
+    }
+    .gh-repo-wrapper[data-gh-repo-neumorphic="true"] .gh-repo-footer,
+    .gh-repo-wrapper[data-gh-repo-neumorphic="true"] .gh-repo-detailed-footer {
+      background: transparent;
+      border-top: none;
+    }
+    .gh-repo-wrapper[data-gh-repo-neumorphic="true"] .gh-repo-icon {
+      background: var(--gh-repo-bg);
+      box-shadow: 3px 3px 6px var(--gh-repo-neu-dark), -3px -3px 6px var(--gh-repo-neu-light);
+      border: none;
+    }
+    .gh-repo-wrapper[data-gh-repo-neumorphic="true"] .gh-repo-topic {
+      background: var(--gh-repo-bg) !important;
+      color: var(--gh-repo-text-primary) !important;
+      box-shadow: 2px 2px 4px var(--gh-repo-neu-dark), -2px -2px 4px var(--gh-repo-neu-light);
+      border: none;
+    }
+    .gh-repo-wrapper[data-gh-repo-neumorphic="true"] .gh-repo-compact-stars {
+      color: var(--gh-repo-star);
+    }
   `;
   document.head.appendChild(style);
 }
@@ -432,12 +684,12 @@ const LicenseIcon: React.FC<{ size?: number; ariaLabel?: string }> = ({
 /*  Topics pills                                                       */
 /* ------------------------------------------------------------------ */
 
-function TopicPills({ topics }: { topics?: string[] }) {
+function TopicPills({ topics, glass }: { topics?: string[]; glass?: boolean }) {
   if (!topics || topics.length === 0) return null;
   return (
     <div className="gh-repo-topics">
       {topics.map((topic) => (
-        <span key={topic} className="gh-repo-topic">
+        <span key={topic} className={["gh-repo-topic", glass ? "gh-repo-topic-glass" : ""].filter(Boolean).join(" ")}>
           {topic}
         </span>
       ))}
@@ -449,7 +701,7 @@ function TopicPills({ topics }: { topics?: string[] }) {
 /*  Variants                                                           */
 /* ------------------------------------------------------------------ */
 
-const DefaultVariant: React.FC<{ repoData: GitHubRepoData; locale: string }> = ({
+const DefaultVariant: React.FC<{ repoData: GitHubRepoData; locale: string; glass?: boolean }> = ({
   repoData,
   locale,
 }) => {
@@ -512,9 +764,10 @@ const DefaultVariant: React.FC<{ repoData: GitHubRepoData; locale: string }> = (
   );
 };
 
-const DetailedVariant: React.FC<{ repoData: GitHubRepoData; locale: string }> = ({
+const DetailedVariant: React.FC<{ repoData: GitHubRepoData; locale: string; glass?: boolean }> = ({
   repoData,
   locale,
+  glass,
 }) => {
   return (
     <article className="gh-repo-detailed">
@@ -540,7 +793,7 @@ const DetailedVariant: React.FC<{ repoData: GitHubRepoData; locale: string }> = 
               {repoData.description}
             </p>
           )}
-          <TopicPills topics={repoData.topics} />
+          <TopicPills topics={repoData.topics} glass={glass} />
         </div>
       </div>
       <div className="gh-repo-detailed-footer">
@@ -578,7 +831,7 @@ const DetailedVariant: React.FC<{ repoData: GitHubRepoData; locale: string }> = 
   );
 };
 
-const CompactVariant: React.FC<{ repoData: GitHubRepoData; locale: string }> = ({
+const CompactVariant: React.FC<{ repoData: GitHubRepoData; locale: string; glass?: boolean }> = ({
   repoData,
   locale,
 }) => {
@@ -629,7 +882,7 @@ const CompactVariant: React.FC<{ repoData: GitHubRepoData; locale: string }> = (
   );
 };
 
-const InlineVariant: React.FC<{ repoData: GitHubRepoData }> = ({ repoData }) => {
+const InlineVariant: React.FC<{ repoData: GitHubRepoData; glass?: boolean }> = ({ repoData }) => {
   return (
     <a
       href={repoData.url}
@@ -661,19 +914,36 @@ const Skeleton: React.FC<GithubRepoSkeletonProps> = ({
   className,
   style,
   theme = "system",
+  glass,
+  gradient,
+  neumorphic,
 }) => {
   const wrapperClass = ["gh-repo-wrapper", className].filter(Boolean).join(" ");
 
   const bone = (sx: React.CSSProperties): React.ReactNode => (
     <div
       className="gh-repo-skeleton-pulse"
-      style={{ backgroundColor: "var(--gh-repo-border)", borderRadius: "4px", ...sx }}
+      style={{
+        backgroundColor: neumorphic ? "var(--gh-repo-bg)" : glass ? "var(--gh-repo-skeleton-bg)" : "var(--gh-repo-border)",
+        borderRadius: neumorphic ? "12px" : "4px",
+        boxShadow: neumorphic ? "3px 3px 6px var(--gh-repo-neu-dark), -3px -3px 6px var(--gh-repo-neu-light)" : undefined,
+        ...sx,
+      }}
     />
   );
 
+  const wrapperAttrs = {
+    className: wrapperClass,
+    style,
+    "data-gh-repo-theme": theme,
+    "data-gh-repo-glass": glass ? "true" : undefined,
+    "data-gh-repo-gradient": gradient ? "true" : undefined,
+    "data-gh-repo-neumorphic": neumorphic ? "true" : undefined,
+  };
+
   if (variant === "inline") {
     return (
-      <div className={wrapperClass} style={style} data-gh-repo-theme={theme}>
+      <div {...wrapperAttrs}>
         <div className="gh-repo-inline">
           {bone({ width: 14, height: 14, borderRadius: "4px" })}
           {bone({ width: 100, height: 12 })}
@@ -685,7 +955,7 @@ const Skeleton: React.FC<GithubRepoSkeletonProps> = ({
 
   if (variant === "compact") {
     return (
-      <div className={wrapperClass} style={style} data-gh-repo-theme={theme}>
+      <div {...wrapperAttrs}>
         <div className="gh-repo-compact">
           <div className="gh-repo-compact-header">
             {bone({ width: 20, height: 20, borderRadius: "4px" })}
@@ -704,7 +974,7 @@ const Skeleton: React.FC<GithubRepoSkeletonProps> = ({
 
   if (variant === "detailed") {
     return (
-      <div className={wrapperClass} style={style} data-gh-repo-theme={theme}>
+      <div {...wrapperAttrs}>
         <div className="gh-repo-detailed">
           <div className="gh-repo-detailed-header">
             {bone({ width: 40, height: 40, borderRadius: "50%", minWidth: 40 })}
@@ -726,7 +996,7 @@ const Skeleton: React.FC<GithubRepoSkeletonProps> = ({
 
   // default
   return (
-    <div className={wrapperClass} style={style} data-gh-repo-theme={theme}>
+    <div {...wrapperAttrs}>
       <div className="gh-repo-card">
         <div className="gh-repo-card-header">
           {bone({ width: 32, height: 32, borderRadius: "6px", minWidth: 32 })}
@@ -761,6 +1031,9 @@ export const GithubRepoPreview: GithubRepoPreviewComponent = ({
   variant = "default",
   fontFamily,
   locale = "en-US",
+  glass,
+  gradient,
+  neumorphic,
 }) => {
   const wrapperClass = ["gh-repo-wrapper", className].filter(Boolean).join(" ");
 
@@ -772,19 +1045,26 @@ export const GithubRepoPreview: GithubRepoPreviewComponent = ({
   const renderVariant = () => {
     switch (variant) {
       case "compact":
-        return <CompactVariant repoData={repoData} locale={locale} />;
+        return <CompactVariant repoData={repoData} locale={locale} glass={glass} />;
       case "inline":
-        return <InlineVariant repoData={repoData} />;
+        return <InlineVariant repoData={repoData} glass={glass} />;
       case "detailed":
-        return <DetailedVariant repoData={repoData} locale={locale} />;
+        return <DetailedVariant repoData={repoData} locale={locale} glass={glass} />;
       case "default":
       default:
-        return <DefaultVariant repoData={repoData} locale={locale} />;
+        return <DefaultVariant repoData={repoData} locale={locale} glass={glass} />;
     }
   };
 
   return (
-    <div className={wrapperClass} style={rootStyle} data-gh-repo-theme={theme}>
+    <div
+      className={wrapperClass}
+      style={rootStyle}
+      data-gh-repo-theme={theme}
+      data-gh-repo-glass={glass ? "true" : undefined}
+      data-gh-repo-gradient={gradient ? "true" : undefined}
+      data-gh-repo-neumorphic={neumorphic ? "true" : undefined}
+    >
       {renderVariant()}
     </div>
   );

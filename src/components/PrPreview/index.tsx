@@ -63,6 +63,7 @@ function injectGlobalStyles() {
         --gh-pr-closed-bg: #da3633;
         --gh-pr-additions: #3fb950;
         --gh-pr-deletions: #f85149;
+        --gh-pr-skeleton-bg: rgba(255, 255, 255, 0.15);
       }
     }
 
@@ -302,6 +303,277 @@ function injectGlobalStyles() {
       min-width: 0;
       flex: 1 1 auto;
     }
+
+    /* Glass variables - Light theme */
+    .gh-pr-wrapper[data-gh-pr-glass="true"][data-gh-pr-theme="light"] {
+      --gh-pr-bg: rgba(255, 255, 255, 0.45);
+      --gh-pr-text-primary: #1a1a2e;
+      --gh-pr-text-secondary: rgba(26, 26, 46, 0.7);
+      --gh-pr-border: rgba(255, 255, 255, 0.5);
+      --gh-pr-footer-bg: rgba(255, 255, 255, 0.25);
+      --gh-pr-link: #4f46e5;
+      --gh-pr-open-bg: #16a34a;
+      --gh-pr-merged-bg: #7c3aed;
+      --gh-pr-closed-bg: #dc2626;
+      --gh-pr-additions: #16a34a;
+      --gh-pr-deletions: #dc2626;
+      --gh-pr-skeleton-bg: rgba(26, 26, 46, 0.15);
+    }
+    /* Glass variables - Dark theme */
+    .gh-pr-wrapper[data-gh-pr-glass="true"][data-gh-pr-theme="dark"] {
+      --gh-pr-bg: rgba(255, 255, 255, 0.08);
+      --gh-pr-text-primary: #ffffff;
+      --gh-pr-text-secondary: rgba(255, 255, 255, 0.8);
+      --gh-pr-border: rgba(255, 255, 255, 0.22);
+      --gh-pr-footer-bg: rgba(255, 255, 255, 0.04);
+      --gh-pr-link: #a5b4fc;
+      --gh-pr-open-bg: #3fb950;
+      --gh-pr-merged-bg: #a371f7;
+      --gh-pr-closed-bg: #f85149;
+      --gh-pr-additions: #3fb950;
+      --gh-pr-deletions: #f85149;
+      --gh-pr-skeleton-bg: rgba(255, 255, 255, 0.15);
+    }
+    /* Glass variables - System theme (default light) */
+    .gh-pr-wrapper[data-gh-pr-glass="true"][data-gh-pr-theme="system"] {
+      --gh-pr-bg: rgba(255, 255, 255, 0.45);
+      --gh-pr-text-primary: #1a1a2e;
+      --gh-pr-text-secondary: rgba(26, 26, 46, 0.7);
+      --gh-pr-border: rgba(255, 255, 255, 0.5);
+      --gh-pr-footer-bg: rgba(255, 255, 255, 0.25);
+      --gh-pr-link: #4f46e5;
+      --gh-pr-open-bg: #16a34a;
+      --gh-pr-merged-bg: #7c3aed;
+      --gh-pr-closed-bg: #dc2626;
+      --gh-pr-additions: #16a34a;
+      --gh-pr-deletions: #dc2626;
+      --gh-pr-skeleton-bg: rgba(26, 26, 46, 0.15);
+    }
+    @media (prefers-color-scheme: dark) {
+      .gh-pr-wrapper[data-gh-pr-glass="true"][data-gh-pr-theme="system"] {
+        --gh-pr-bg: rgba(255, 255, 255, 0.08);
+        --gh-pr-text-primary: #ffffff;
+        --gh-pr-text-secondary: rgba(255, 255, 255, 0.8);
+        --gh-pr-border: rgba(255, 255, 255, 0.22);
+        --gh-pr-footer-bg: rgba(255, 255, 255, 0.04);
+        --gh-pr-link: #a5b4fc;
+        --gh-pr-open-bg: #3fb950;
+        --gh-pr-merged-bg: #a371f7;
+        --gh-pr-closed-bg: #f85149;
+        --gh-pr-additions: #3fb950;
+        --gh-pr-deletions: #f85149;
+      }
+    }
+
+    /* Gradient variables */
+    .gh-pr-wrapper[data-gh-pr-gradient="true"] {
+      --gh-pr-bg: rgba(255, 255, 255, 0.07);
+      --gh-pr-text-primary: #ffffff;
+      --gh-pr-text-secondary: rgba(255, 255, 255, 0.75);
+      --gh-pr-border: rgba(255, 255, 255, 0.15);
+      --gh-pr-footer-bg: rgba(255, 255, 255, 0.04);
+      --gh-pr-link: #c7d2fe;
+      --gh-pr-open-bg: #3fb950;
+      --gh-pr-merged-bg: #a371f7;
+      --gh-pr-closed-bg: #f85149;
+      --gh-pr-additions: #3fb950;
+      --gh-pr-deletions: #f85149;
+    }
+
+    /* Liquid Glass card effects */
+    .gh-pr-wrapper[data-gh-pr-glass="true"] .gh-pr-card,
+    .gh-pr-wrapper[data-gh-pr-glass="true"] .gh-pr-kanban,
+    .gh-pr-wrapper[data-gh-pr-glass="true"] .gh-pr-chip {
+      backdrop-filter: blur(40px) saturate(200%) brightness(1.15);
+      -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(1.15);
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.05) 100%
+      );
+      background-color: var(--gh-pr-bg);
+      border: 1px solid var(--gh-pr-border);
+      border-top: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.08),
+        0 8px 24px rgba(0, 0, 0, 0.12),
+        0 24px 48px rgba(0, 0, 0, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .gh-pr-wrapper[data-gh-pr-glass="true"] .gh-pr-card::before,
+    .gh-pr-wrapper[data-gh-pr-glass="true"] .gh-pr-kanban::before,
+    .gh-pr-wrapper[data-gh-pr-glass="true"] .gh-pr-chip::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1.4px;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(255, 255, 255, 0.15) 30%,
+        rgba(255, 255, 255, 0) 60%,
+        rgba(255, 255, 255, 0.1) 100%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      opacity: 0.6;
+    }
+    .gh-pr-wrapper[data-gh-pr-glass="true"] .gh-pr-card-header {
+      padding: 24px;
+    }
+    .gh-pr-wrapper[data-gh-pr-glass="true"] .gh-pr-footer {
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.02) 100%
+      );
+      background-color: var(--gh-pr-footer-bg);
+      border-top: 1px solid var(--gh-pr-border);
+      padding: 16px 24px;
+      border-radius: 0 0 23px 23px;
+    }
+    .gh-pr-wrapper[data-gh-pr-glass="true"] .gh-pr-icon {
+      box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.06),
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+      border-radius: 14px;
+    }
+    .gh-pr-wrapper[data-gh-pr-glass="true"] .gh-pr-label-glass {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.08) 100%
+      ) !important;
+      color: var(--gh-pr-text-primary) !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      backdrop-filter: blur(8px) saturate(150%);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+    }
+    .gh-pr-wrapper[data-gh-pr-glass="true"] .gh-pr-badge {
+      box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.06),
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    }
+    .gh-pr-wrapper[data-gh-pr-glass="true"] .gh-pr-description {
+      border-top: 1px solid var(--gh-pr-border);
+      color: var(--gh-pr-text-secondary);
+      margin: 0 24px 24px;
+      padding-top: 16px;
+    }
+    .gh-pr-wrapper[data-gh-pr-glass="true"] .gh-pr-kanban {
+      padding: 20px;
+      max-width: 280px;
+    }
+    .gh-pr-wrapper[data-gh-pr-glass="true"] .gh-pr-kanban-icon {
+      box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.06),
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+    }
+
+    /* Gradient card background */
+    .gh-pr-wrapper[data-gh-pr-gradient="true"] .gh-pr-card,
+    .gh-pr-wrapper[data-gh-pr-gradient="true"] .gh-pr-kanban,
+    .gh-pr-wrapper[data-gh-pr-gradient="true"] .gh-pr-chip {
+      background: linear-gradient(135deg, #020617 0%, #1e1b4b 25%, #4338ca 50%, #7c3aed 75%, #c026d3 100%);
+    }
+
+    /* Neumorphism overrides */
+    .gh-pr-wrapper[data-gh-pr-neumorphic="true"][data-gh-pr-theme="light"] {
+      --gh-pr-bg: #e0e5ec;
+      --gh-pr-text-primary: #4a5568;
+      --gh-pr-text-secondary: #718096;
+      --gh-pr-border: transparent;
+      --gh-pr-footer-bg: #e0e5ec;
+      --gh-pr-link: #4a5568;
+      --gh-pr-open-bg: #48bb78;
+      --gh-pr-merged-bg: #9f7aea;
+      --gh-pr-closed-bg: #f56565;
+      --gh-pr-additions: #48bb78;
+      --gh-pr-deletions: #f56565;
+      --gh-pr-neu-dark: #a3b1c6;
+      --gh-pr-neu-light: #ffffff;
+    }
+    .gh-pr-wrapper[data-gh-pr-neumorphic="true"][data-gh-pr-theme="dark"] {
+      --gh-pr-bg: #2d3748;
+      --gh-pr-text-primary: #e2e8f0;
+      --gh-pr-text-secondary: #a0aec0;
+      --gh-pr-border: transparent;
+      --gh-pr-footer-bg: #2d3748;
+      --gh-pr-link: #e2e8f0;
+      --gh-pr-open-bg: #48bb78;
+      --gh-pr-merged-bg: #9f7aea;
+      --gh-pr-closed-bg: #f56565;
+      --gh-pr-additions: #48bb78;
+      --gh-pr-deletions: #f56565;
+      --gh-pr-neu-dark: #1a202c;
+      --gh-pr-neu-light: #3e4c5e;
+    }
+    @media (prefers-color-scheme: dark) {
+      .gh-pr-wrapper[data-gh-pr-neumorphic="true"][data-gh-pr-theme="system"] {
+        --gh-pr-bg: #2d3748;
+        --gh-pr-text-primary: #e2e8f0;
+        --gh-pr-text-secondary: #a0aec0;
+        --gh-pr-border: transparent;
+        --gh-pr-footer-bg: #2d3748;
+        --gh-pr-link: #e2e8f0;
+        --gh-pr-open-bg: #48bb78;
+        --gh-pr-merged-bg: #9f7aea;
+        --gh-pr-closed-bg: #f56565;
+        --gh-pr-additions: #48bb78;
+        --gh-pr-deletions: #f56565;
+        --gh-pr-neu-dark: #1a202c;
+        --gh-pr-neu-light: #3e4c5e;
+      }
+    }
+    .gh-pr-wrapper[data-gh-pr-neumorphic="true"] .gh-pr-card,
+    .gh-pr-wrapper[data-gh-pr-neumorphic="true"] .gh-pr-kanban {
+      background: var(--gh-pr-bg);
+      border: none;
+      border-radius: 20px;
+      box-shadow: 8px 8px 16px var(--gh-pr-neu-dark), -8px -8px 16px var(--gh-pr-neu-light);
+    }
+    .gh-pr-wrapper[data-gh-pr-neumorphic="true"] .gh-pr-chip {
+      background: var(--gh-pr-bg);
+      border: none;
+      border-radius: 20px;
+      box-shadow: 4px 4px 8px var(--gh-pr-neu-dark), -4px -4px 8px var(--gh-pr-neu-light);
+    }
+    .gh-pr-wrapper[data-gh-pr-neumorphic="true"] .gh-pr-chip:active {
+      box-shadow: inset 3px 3px 6px var(--gh-pr-neu-dark), inset -3px -3px 6px var(--gh-pr-neu-light);
+    }
+    .gh-pr-wrapper[data-gh-pr-neumorphic="true"] .gh-pr-footer {
+      background: transparent;
+      border-top: none;
+    }
+    .gh-pr-wrapper[data-gh-pr-neumorphic="true"] .gh-pr-icon {
+      box-shadow: 3px 3px 6px var(--gh-pr-neu-dark), -3px -3px 6px var(--gh-pr-neu-light);
+    }
+    .gh-pr-wrapper[data-gh-pr-neumorphic="true"] .gh-pr-badge {
+      box-shadow: 2px 2px 4px var(--gh-pr-neu-dark), -2px -2px 4px var(--gh-pr-neu-light);
+    }
+    .gh-pr-wrapper[data-gh-pr-neumorphic="true"] .gh-pr-label {
+      background: var(--gh-pr-bg) !important;
+      color: var(--gh-pr-text-primary) !important;
+      box-shadow: 2px 2px 4px var(--gh-pr-neu-dark), -2px -2px 4px var(--gh-pr-neu-light);
+      border: none;
+    }
+    .gh-pr-wrapper[data-gh-pr-neumorphic="true"] .gh-pr-description {
+      border-top: none;
+      color: var(--gh-pr-text-secondary);
+    }
   `;
   document.head.appendChild(style);
 }
@@ -397,14 +669,14 @@ function ChecksIcon({ status }: { status: "success" | "failure" | "pending" }) {
   );
 }
 
-function LabelPills({ labels }: { labels?: { name: string; color: string }[] }) {
+function LabelPills({ labels, glass }: { labels?: { name: string; color: string }[]; glass?: boolean }) {
   if (!labels || labels.length === 0) return null;
   return (
     <div className="gh-pr-labels">
       {labels.map((label) => (
         <span
           key={label.name}
-          className="gh-pr-label"
+          className={["gh-pr-label", glass ? "gh-pr-label-glass" : ""].filter(Boolean).join(" ")}
           style={{
             backgroundColor: `#${label.color.replace("#", "")}`,
             color: getContrastColor(label.color),
@@ -421,9 +693,10 @@ function LabelPills({ labels }: { labels?: { name: string; color: string }[] }) 
 /*  Variants                                                           */
 /* ------------------------------------------------------------------ */
 
-const DefaultVariant: React.FC<{ prData: PullRequestData; locale: string }> = ({
+const DefaultVariant: React.FC<{ prData: PullRequestData; locale: string; glass?: boolean }> = ({
   prData,
   locale,
+  glass,
 }) => {
   const status = getStatusMeta(prData.state, prData.merged);
 
@@ -440,7 +713,7 @@ const DefaultVariant: React.FC<{ prData: PullRequestData; locale: string }> = ({
             </a>{" "}
             <span className="gh-pr-number">#{prData.number}</span>
           </h3>
-          <LabelPills labels={prData.labels} />
+          <LabelPills labels={prData.labels} glass={glass} />
           <div className="gh-pr-subtitle">
             <img src={prData.author.avatarUrl} alt={`${prData.author.login}'s avatar`} className="gh-pr-avatar" />
             <strong style={{ color: "var(--gh-pr-text-primary)" }}>{prData.author.login}</strong>{" "}
@@ -471,9 +744,10 @@ const DefaultVariant: React.FC<{ prData: PullRequestData; locale: string }> = ({
   );
 };
 
-const DetailedVariant: React.FC<{ prData: PullRequestData; locale: string }> = ({
+const DetailedVariant: React.FC<{ prData: PullRequestData; locale: string; glass?: boolean }> = ({
   prData,
   locale,
+  glass,
 }) => {
   const status = getStatusMeta(prData.state, prData.merged);
 
@@ -490,7 +764,7 @@ const DetailedVariant: React.FC<{ prData: PullRequestData; locale: string }> = (
             </a>{" "}
             <span className="gh-pr-number">#{prData.number}</span>
           </h3>
-          <LabelPills labels={prData.labels} />
+          <LabelPills labels={prData.labels} glass={glass} />
           <div className="gh-pr-subtitle">
             <img src={prData.author.avatarUrl} alt={`${prData.author.login}'s avatar`} className="gh-pr-avatar" />
             <strong style={{ color: "var(--gh-pr-text-primary)" }}>{prData.author.login}</strong>{" "}
@@ -526,7 +800,7 @@ const DetailedVariant: React.FC<{ prData: PullRequestData; locale: string }> = (
   );
 };
 
-const CompactVariant: React.FC<{ prData: PullRequestData; locale: string }> = ({
+const CompactVariant: React.FC<{ prData: PullRequestData; locale: string; glass?: boolean }> = ({
   prData,
   locale,
 }) => {
@@ -569,7 +843,7 @@ const CompactVariant: React.FC<{ prData: PullRequestData; locale: string }> = ({
   );
 };
 
-const InlineVariant: React.FC<{ prData: PullRequestData }> = ({ prData }) => {
+const InlineVariant: React.FC<{ prData: PullRequestData; glass?: boolean }> = ({ prData }) => {
   const status = getStatusMeta(prData.state, prData.merged);
 
   return (
@@ -592,16 +866,36 @@ const Skeleton: React.FC<GithubPrSkeletonProps> = ({
   className,
   style,
   theme = "system",
+  glass,
+  gradient,
+  neumorphic,
 }) => {
   const wrapperClass = ["gh-pr-wrapper", className].filter(Boolean).join(" ");
 
   const bone = (sx: React.CSSProperties): React.ReactNode => (
-    <div className="gh-pr-skeleton-pulse" style={{ backgroundColor: "var(--gh-pr-border)", borderRadius: "4px", ...sx }} />
+    <div
+      className="gh-pr-skeleton-pulse"
+      style={{
+        backgroundColor: neumorphic ? "var(--gh-pr-bg)" : glass ? "var(--gh-pr-skeleton-bg)" : "var(--gh-pr-border)",
+        borderRadius: neumorphic ? "12px" : "4px",
+        boxShadow: neumorphic ? "3px 3px 6px var(--gh-pr-neu-dark), -3px -3px 6px var(--gh-pr-neu-light)" : undefined,
+        ...sx,
+      }}
+    />
   );
+
+  const wrapperAttrs = {
+    className: wrapperClass,
+    style,
+    "data-gh-pr-theme": theme,
+    "data-gh-pr-glass": glass ? "true" : undefined,
+    "data-gh-pr-gradient": gradient ? "true" : undefined,
+    "data-gh-pr-neumorphic": neumorphic ? "true" : undefined,
+  };
 
   if (variant === "inline") {
     return (
-      <div className={wrapperClass} style={style} data-gh-pr-theme={theme}>
+      <div {...wrapperAttrs}>
         <div className="gh-pr-chip">
           {bone({ width: 14, height: 14, borderRadius: "50%" })}
           {bone({ width: 40, height: 12 })}
@@ -613,7 +907,7 @@ const Skeleton: React.FC<GithubPrSkeletonProps> = ({
 
   if (variant === "compact") {
     return (
-      <div className={wrapperClass} style={style} data-gh-pr-theme={theme}>
+      <div {...wrapperAttrs}>
         <div className="gh-pr-kanban">
           <div className="gh-pr-kanban-header">
             {bone({ width: 20, height: 20, borderRadius: "50%" })}
@@ -632,7 +926,7 @@ const Skeleton: React.FC<GithubPrSkeletonProps> = ({
 
   if (variant === "detailed") {
     return (
-      <div className={wrapperClass} style={style} data-gh-pr-theme={theme}>
+      <div {...wrapperAttrs}>
         <div className="gh-pr-card">
           <div className="gh-pr-card-header">
             {bone({ width: 32, height: 32, borderRadius: "50%", minWidth: 32 })}
@@ -654,7 +948,7 @@ const Skeleton: React.FC<GithubPrSkeletonProps> = ({
 
   // default
   return (
-    <div className={wrapperClass} style={style} data-gh-pr-theme={theme}>
+    <div {...wrapperAttrs}>
       <div className="gh-pr-card">
         <div className="gh-pr-card-header">
           {bone({ width: 32, height: 32, borderRadius: "50%", minWidth: 32 })}
@@ -688,6 +982,9 @@ export const GithubPrPreview: GithubPrPreviewComponent = ({
   variant = "default",
   fontFamily,
   locale = "en-US",
+  glass,
+  gradient,
+  neumorphic,
 }) => {
   const wrapperClass = ["gh-pr-wrapper", className].filter(Boolean).join(" ");
 
@@ -699,19 +996,26 @@ export const GithubPrPreview: GithubPrPreviewComponent = ({
   const renderVariant = () => {
     switch (variant) {
       case "compact":
-        return <CompactVariant prData={prData} locale={locale} />;
+        return <CompactVariant prData={prData} locale={locale} glass={glass} />;
       case "inline":
-        return <InlineVariant prData={prData} />;
+        return <InlineVariant prData={prData} glass={glass} />;
       case "detailed":
-        return <DetailedVariant prData={prData} locale={locale} />;
+        return <DetailedVariant prData={prData} locale={locale} glass={glass} />;
       case "default":
       default:
-        return <DefaultVariant prData={prData} locale={locale} />;
+        return <DefaultVariant prData={prData} locale={locale} glass={glass} />;
     }
   };
 
   return (
-    <div className={wrapperClass} style={rootStyle} data-gh-pr-theme={theme}>
+    <div
+      className={wrapperClass}
+      style={rootStyle}
+      data-gh-pr-theme={theme}
+      data-gh-pr-glass={glass ? "true" : undefined}
+      data-gh-pr-gradient={gradient ? "true" : undefined}
+      data-gh-pr-neumorphic={neumorphic ? "true" : undefined}
+    >
       {renderVariant()}
     </div>
   );
